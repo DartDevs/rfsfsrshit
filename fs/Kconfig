@@ -254,6 +254,7 @@ endmenu
 endif
 
 source "fs/nls/Kconfig"
+source "fs/rfs/Kconfig"
 source "fs/dlm/Kconfig"
 
 endmenu

@@ -1,0 +1,46 @@
+menu "RFS Filesystem"
+
+config RFS_FS
+       tristate "Robust FAT Filesystem (RFS) support"
+       help    
+         Samsung Robust File System support.
+
+config RFS_VFAT
+       bool "FAT && long file name support"
+       depends on RFS_FS
+
+config RFS_SYNC_ON_CLOSE
+       bool "Sync on close support"
+       depends on RFS_FS
+
+config RFS_NLS
+       bool "Support NLS on RFS filesystem"
+       select NLS
+       depends on RFS_VFAT
+
+config RFS_DEFAULT_CODEPAGE
+       string "Use default NLS codepage"
+       default "cp949"
+       depends on RFS_NLS
+
+config RFS_FAT_DEBUG
+       bool "FAT Debug Message support"
+       depends on RFS_FS
+
+config RFS_FAT_DEBUG_VERBOSE
+       int "Debugging versosity (0 = quiet, 3 = noisy)"
+       default 0
+       depends on RFS_FAT_DEBUG
+
+config RFS_MAPDESTROY
+       bool 
+
+config RFS_PRE_ALLOC
+       int
+       default 50
+
+config RFS_VERSION
+       string
+       default "1.2.2p1-rc2"
+
+endmenu

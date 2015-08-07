@@ -1,0 +1,10 @@
+#
+# Makefile for the linux rfs-filesystem (kernel 2.6)
+#
+
+obj-$(CONFIG_RFS_FS)   += rfs.o
+
+rfs-y          += cluster.o code_convert.o dos.o
+rfs-y          += dir.o file.o inode.o namei.o super.o
+rfs-y          += log.o log_replay.o
+rfs-y          += rfs_26.o
